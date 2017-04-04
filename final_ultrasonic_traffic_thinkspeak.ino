@@ -143,6 +143,48 @@ void loop() {
   //Conditions for checking density of perticular road and release the signals
   
   if(road1<road2&&road1<road3&&road1<road4){
+    
+     // TCP connection
+  String cmd = "AT+CIPSTART=\"TCP\",\"";
+  cmd += "184.106.153.149"; // api.thingspeak.com
+  cmd += "\",80";
+  ser.println(cmd);
+  Serial.println(cmd);
+   
+  if(ser.find("Error")){
+    Serial.println("AT+CIPSTART error");
+    return;
+  }
+  
+  // prepare GET string
+  String getStr = "GET /update?api_key=";
+  getStr += apiKey;
+    
+    getStr +="&field1=";
+  getStr += String(state1);
+  getStr +="&field2=";
+  getStr += String(state2);
+  getStr +="&field3=";
+  getStr += String(state3);
+   getStr +="&field4=";
+  getStr += String(state4);
+  getStr += "\r\n\r\n";
+
+  // send data length
+  cmd = "AT+CIPSEND=";
+  cmd += String(getStr.length());
+  ser.println(cmd);
+  Serial.println(cmd);
+
+  if(ser.find(">")){
+    ser.print(getStr);
+    Serial.print(getStr);
+  }
+  else{
+    ser.println("AT+CIPCLOSE");
+    // alert user
+    Serial.println("AT+CIPCLOSE");
+  }
 
    //for 4th green light
    case1 = 0b10010010;
@@ -163,6 +205,48 @@ void loop() {
    delay(8000);
 }
 else if (road2<road1&&road2<road3&&road2<road4){
+  
+   // TCP connection
+  String cmd = "AT+CIPSTART=\"TCP\",\"";
+  cmd += "184.106.153.149"; // api.thingspeak.com
+  cmd += "\",80";
+  ser.println(cmd);
+  Serial.println(cmd);
+   
+  if(ser.find("Error")){
+    Serial.println("AT+CIPSTART error");
+    return;
+  }
+  
+  // prepare GET string
+  String getStr = "GET /update?api_key=";
+  getStr += apiKey;
+    
+    getStr +="&field1=";
+  getStr += String(state1);
+  getStr +="&field2=";
+  getStr += String(state2);
+  getStr +="&field3=";
+  getStr += String(state3);
+   getStr +="&field4=";
+  getStr += String(state4);
+  getStr += "\r\n\r\n";
+
+  // send data length
+  cmd = "AT+CIPSEND=";
+  cmd += String(getStr.length());
+  ser.println(cmd);
+  Serial.println(cmd);
+
+  if(ser.find(">")){
+    ser.print(getStr);
+    Serial.print(getStr);
+  }
+  else{
+    ser.println("AT+CIPCLOSE");
+    // alert user
+    Serial.println("AT+CIPCLOSE");
+  }
 
     //For 3rd green light
    case4 = 0b10010000;
@@ -185,6 +269,48 @@ else if (road2<road1&&road2<road3&&road2<road4){
 }
 
 else if(road3<road1&&road3<road2&&road3<road4){
+  
+   // TCP connection
+  String cmd = "AT+CIPSTART=\"TCP\",\"";
+  cmd += "184.106.153.149"; // api.thingspeak.com
+  cmd += "\",80";
+  ser.println(cmd);
+  Serial.println(cmd);
+   
+  if(ser.find("Error")){
+    Serial.println("AT+CIPSTART error");
+    return;
+  }
+  
+  // prepare GET string
+  String getStr = "GET /update?api_key=";
+  getStr += apiKey;
+    
+    getStr +="&field1=";
+  getStr += String(state1);
+  getStr +="&field2=";
+  getStr += String(state2);
+  getStr +="&field3=";
+  getStr += String(state3);
+   getStr +="&field4=";
+  getStr += String(state4);
+  getStr += "\r\n\r\n";
+
+  // send data length
+  cmd = "AT+CIPSEND=";
+  cmd += String(getStr.length());
+  ser.println(cmd);
+  Serial.println(cmd);
+
+  if(ser.find(">")){
+    ser.print(getStr);
+    Serial.print(getStr);
+  }
+  else{
+    ser.println("AT+CIPCLOSE");
+    // alert user
+    Serial.println("AT+CIPCLOSE");
+  }
 
     //for 2nd green light 
     case8 = 0b10000110;
@@ -207,6 +333,48 @@ else if(road3<road1&&road3<road2&&road3<road4){
 }
 
 else if (road4<road1&&road4<road2&&road4<road3){
+  
+   // TCP connection
+  String cmd = "AT+CIPSTART=\"TCP\",\"";
+  cmd += "184.106.153.149"; // api.thingspeak.com
+  cmd += "\",80";
+  ser.println(cmd);
+  Serial.println(cmd);
+   
+  if(ser.find("Error")){
+    Serial.println("AT+CIPSTART error");
+    return;
+  }
+  
+  // prepare GET string
+  String getStr = "GET /update?api_key=";
+  getStr += apiKey;
+    
+    getStr +="&field1=";
+  getStr += String(state1);
+  getStr +="&field2=";
+  getStr += String(state2);
+  getStr +="&field3=";
+  getStr += String(state3);
+   getStr +="&field4=";
+  getStr += String(state4);
+  getStr += "\r\n\r\n";
+
+  // send data length
+  cmd = "AT+CIPSEND=";
+  cmd += String(getStr.length());
+  ser.println(cmd);
+  Serial.println(cmd);
+
+  if(ser.find(">")){
+    ser.print(getStr);
+    Serial.print(getStr);
+  }
+  else{
+    ser.println("AT+CIPCLOSE");
+    // alert user
+    Serial.println("AT+CIPCLOSE");
+  }
 
     //for 1st greeen light 
     case12 = 0b00110010;
@@ -228,6 +396,49 @@ else if (road4<road1&&road4<road2&&road4<road3){
   
 }
 else {
+  
+   // TCP connection
+  String cmd = "AT+CIPSTART=\"TCP\",\"";
+  cmd += "184.106.153.149"; // api.thingspeak.com
+  cmd += "\",80";
+  ser.println(cmd);
+  Serial.println(cmd);
+   
+  if(ser.find("Error")){
+    Serial.println("AT+CIPSTART error");
+    return;
+  }
+  
+  // prepare GET string
+  String getStr = "GET /update?api_key=";
+  getStr += apiKey;
+    
+    getStr +="&field1=";
+  getStr += String(state1);
+  getStr +="&field2=";
+  getStr += String(state2);
+  getStr +="&field3=";
+  getStr += String(state3);
+   getStr +="&field4=";
+  getStr += String(state4);
+  getStr += "\r\n\r\n";
+
+  // send data length
+  cmd = "AT+CIPSEND=";
+  cmd += String(getStr.length());
+  ser.println(cmd);
+  Serial.println(cmd);
+
+  if(ser.find(">")){
+    ser.print(getStr);
+    Serial.print(getStr);
+  }
+  else{
+    ser.println("AT+CIPCLOSE");
+    // alert user
+    Serial.println("AT+CIPCLOSE");
+  }
+  
    case14 = 0b01001001;
    case15 = 0b00100000;
    digitalWrite(latchPin, LOW);
