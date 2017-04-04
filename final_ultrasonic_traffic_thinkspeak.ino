@@ -142,7 +142,7 @@ void loop() {
 
   //Conditions for checking density of perticular road and release the signals
   
-  if(UltraSensor1+UltraSensor2<UltraSensor3+UltraSensor4&&UltraSensor5+UltraSensor6&&UltraSensor7+UltraSensor8){
+  if(road1<road2&&road1<road3&&road1<road4){
 
    //for 4th green light
    case1 = 0b10010010;
@@ -162,7 +162,7 @@ void loop() {
    digitalWrite(latchPin, HIGH);
    delay(8000);
 }
-else if (UltraSensor3+UltraSensor4<UltraSensor1+UltraSensor2&&UltraSensor5+UltraSensor6&&UltraSensor7+UltraSensor8){
+else if (road2<road1&&road2<road3&&road2<road4){
 
     //For 3rd green light
    case4 = 0b10010000;
@@ -184,7 +184,7 @@ else if (UltraSensor3+UltraSensor4<UltraSensor1+UltraSensor2&&UltraSensor5+Ultra
  
 }
 
-else if(UltraSensor5+UltraSensor6<UltraSensor1+UltraSensor2&&UltraSensor3+UltraSensor4&&UltraSensor7+UltraSensor8){
+else if(road3<road1&&road3<road2&&road3<road4){
 
     //for 2nd green light 
     case8 = 0b10000110;
@@ -206,7 +206,7 @@ else if(UltraSensor5+UltraSensor6<UltraSensor1+UltraSensor2&&UltraSensor3+UltraS
 
 }
 
-else if (UltraSensor7+UltraSensor8<UltraSensor1+UltraSensor2&&UltraSensor3+UltraSensor4&&UltraSensor5+UltraSensor6){
+else if (road4<road1&&road4<road2&&road4<road3){
 
     //for 1st greeen light 
     case12 = 0b00110010;
