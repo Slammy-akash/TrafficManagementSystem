@@ -22,7 +22,7 @@ int sensor2State=0;
 int sensor3State=0;
 int sensor4State=0;
 long duration, distance, UltraSensor1,UltraSensor2,UltraSensor3,UltraSensor4,UltraSensor5,UltraSensor6,UltraSensor7,UltraSensor8,road1,road2,road3,road4;
-int count1,count2,count3,count4,a,b,c,d;
+int count1,count2,count3,count4;
 word case0 = 0b10010010;
 byte case1=  0b00010000;
 word case2 = 0b10010010;
